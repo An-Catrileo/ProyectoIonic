@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side">
+    <mat-toolbar color="primary">Menú</mat-toolbar>
+    <mat-nav-list>
+      <mat-list>
+        <mat-list-item class="link">
+          <a mat-button routerLink="/home" (click)="sidenav.close()">Home</a>
+        </mat-list-item>
+        <mat-list-item class="link">
+          <a mat-button routerLink="/login" (click)="sidenav.close()">Login</a>
+        </mat-list-item>
+        <mat-list-item class="link">
+          <a mat-button routerLink="/carrito" (click)="sidenav.close()">Carrito</a>
+        </mat-list-item>
+        <mat-list-item class="link">
+          <a mat-button routerLink="/categorias" (click)="sidenav.close()">Categorías</a>
+        </mat-list-item>
+        <mat-list-item class="link">
+          <a mat-button routerLink="/buscador" (click)="sidenav.close()">Buscador</a>
+        </mat-list-item>
+      </mat-list>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img class="logo" src="../../assets/logo.png" alt="">
+    </mat-toolbar>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

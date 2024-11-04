@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>Categorías</span>
+</mat-toolbar>
+
+<div class="content">
+  <mat-list>
+    <mat-list-item *ngFor="let category of categories">
+      {{ category.name }}
+    </mat-list-item>
+  </mat-list>
+</div>

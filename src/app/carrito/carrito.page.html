@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>Tus compras</span>
+</mat-toolbar>
+
+<div class="content">
+  <mat-list>
+    <mat-list-item *ngFor="let item of cartItems">
+      {{ item.name }} - Cantidad: {{ item.quantity }}
+    </mat-list-item>
+  </mat-list>
+</div>
