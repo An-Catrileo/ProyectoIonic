@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MaterialModule } from './material.module'; // Asegúrate de tener el archivo material.module.ts
 
+
 @NgModule({
   declarations: [AppComponent, MainLayoutComponent],
   imports: [BrowserModule, BrowserAnimationsModule, IonicModule.forRoot(), AppRoutingModule, MaterialModule],
