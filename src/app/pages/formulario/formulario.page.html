@@ -1,36 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-     <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-     </ion-buttons>
-     <ion-title>Formulario</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <form (submit)="addClient($event)"> <!-- Cambiado de addStudent a addClient -->
-    <ion-list lines="full">
-      <ion-item>
-        <ion-label position="floating">RUT</ion-label>
-        <ion-input [(ngModel)]="rut" name="rut" required=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input [(ngModel)]="nombre" name="nombre" required=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Apellido Paterno</ion-label>
-        <ion-input [(ngModel)]="apellidop" name="apellidop" required=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Apellido Materno</ion-label>
-        <ion-input [(ngModel)]="apellidom" name="apellidom" required=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Correo</ion-label>
-        <ion-input [(ngModel)]="correo" name="correo" required="" type="email"></ion-input>
-      </ion-item>
-    </ion-list>
-    <ion-button expand="full" type="submit">Guardar Cliente</ion-button> <!-- Cambiado de "Guardar Estudiante" a "Guardar Cliente" -->
+<div class="content">
+  <form (submit)="addStudent($event)" class="form-container">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>RUT</mat-label>
+      <input matInput [(ngModel)]="rut" name="rut" label="rut" title="rut" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="nombre" name="nombre" label="nombre" title="nombre" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Apellido Paterno</mat-label>
+      <input matInput [(ngModel)]="apellidop" name="apellidop" label="apellidop" title="apellidop" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Apellido Materno</mat-label>
+      <input matInput [(ngModel)]="apellidom" name="apellidom" label="apellidom" title="apellidom" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Correo</mat-label>
+      <input matInput [(ngModel)]="correo" name="correo" label="correo" title="correo" required type="email">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="submit-button">Guardar Estudiante</button>
   </form>
-</ion-content>
+</div>

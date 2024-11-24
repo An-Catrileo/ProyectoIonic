@@ -1,0 +1,33 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre cada campo */
+}
+
+.form-field {
+  width: 100%; /* Ancho completo del campo */
+}
+
+.submit-button {
+    width: 100%;
+    height: 3rem; /* Ancho completo */
+    margin-top: 20px; /* Margen superior */
+    background-color: white; /* Color de fondo del botón */
+    font-size: 18px !important;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  background-color: white; /* Color de fondo al pasar el mouse o enfocar */
+}
+
+.submit-button span.mat-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button .mat-button-focus-overlay {
+  background-color: rgba(0, 0, 0, 0.1); /* Color del overlay de enfoque */
+}

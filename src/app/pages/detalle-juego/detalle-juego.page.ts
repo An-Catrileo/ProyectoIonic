@@ -12,7 +12,10 @@ export class DetalleJuegoPage {
 
   constructor(private route: ActivatedRoute) {
     const games: { [key: number]: { name: string; image: string } } = {
-      1: { name: 'Zelda Tears Of The Kingdom', image: '../../assets/images/zeldaTOTK.jpg' },
+      1: {
+        name: 'Zelda Tears Of The Kingdom',
+        image: '../../assets/images/zeldaTOTK.jpg',
+      },
       2: { name: 'Mario Wonder', image: '../../assets/images/marioWonder.jpg' },
     };
     const gameId = +(this.route.snapshot.paramMap.get('id') || 0);

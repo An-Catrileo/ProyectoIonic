@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { MaterialModule } from '../material.module';
-import { LoginPage } from './login.page';
+import { MaterialModule } from '../../material.module';
+import { CategoriasPage } from './categorias.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{ path: '', component: LoginPage }]),
+    RouterModule.forChild([{ path: '', component: CategoriasPage }]),
     MaterialModule,
   ],
-  declarations: [LoginPage]
+  declarations: [CategoriasPage],
 })
-export class LoginPageModule {}
+export class CategoriasPageModule {}

@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { MaterialModule } from '../material.module'; // Importar Angular Material
-import { HomePage } from './home.page';
+import { MaterialModule } from '../../material.module';
+import { DetalleJuegoPage } from './detalle-juego.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{ path: '', component: HomePage }]),
+    RouterModule.forChild([{ path: '', component: DetalleJuegoPage }]),
     MaterialModule,
   ],
-  declarations: [HomePage],
+  declarations: [DetalleJuegoPage],
 })
-export class HomePageModule {}
+export class DetalleJuegoPageModule {}

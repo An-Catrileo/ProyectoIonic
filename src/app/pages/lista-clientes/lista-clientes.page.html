@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Ver Clientes</span>
+</mat-toolbar>
+
+<div class="content">
+  <mat-list>
+    <mat-list-item *ngFor="let student of students">
+      <img mat-list-avatar src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="">
+      <h3 mat-line>{{student.nombre}} {{student.apellidop}}</h3>
+      
+      <!-- Opciones del cliente -->
+      <button mat-icon-button color="warn" (click)="pinone(student.id)">
+        <mat-icon>push_pin</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="compartirpin(student)">
+        <mat-icon>share</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteStudent(student.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<style>
+  .content {
+    padding: 16px;
+  }
+
+  mat-list-item {
+    display: flex;
+    align-items: center;
+  }
+
+  mat-list-avatar {
+    margin-right: 16px;
+  }
+</style>

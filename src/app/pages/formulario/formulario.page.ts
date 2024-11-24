@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from 'src/app/services/database.service'; // Cambio de ServiciodbService a DatabaseService
+import { ServiciodbService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-formulario',
@@ -8,19 +8,22 @@ import { DatabaseService } from 'src/app/services/database.service'; // Cambio d
 })
 export class FormularioPage implements OnInit {
 
+
   rut: string = '';
   nombre: string = '';
   apellidop: string = '';
   apellidom: string = '';
   correo: string = '';
 
-  constructor(private dbService: DatabaseService) { } // Cambio de ServiciodbService a DatabaseService
+  constructor(private dbService: ServiciodbService) { }
+
 
   async ngOnInit() {
     await this.dbService.initDB();
   }
 
-  async addClient(event: Event){ // Cambio de addStudent a addClient
+
+  async addStudent(event: Event){
     event.preventDefault();
 
     await this.dbService.addItem(this.rut, this.nombre, this.apellidop, this.apellidom, this.correo);
@@ -31,5 +34,4 @@ export class FormularioPage implements OnInit {
     this.apellidom = '';
     this.correo = '';
   }
-
 }

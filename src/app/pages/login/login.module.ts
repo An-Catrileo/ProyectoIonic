@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { MaterialModule } from '../material.module';
-import { BuscadorPage } from './buscador.page';
+import { MaterialModule } from '../../material.module';
+import { LoginPage } from './login.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{ path: '', component: BuscadorPage }]),
+    RouterModule.forChild([{ path: '', component: LoginPage }]),
     MaterialModule,
   ],
-  declarations: [BuscadorPage]
+  declarations: [LoginPage],
 })
-export class BuscadorPageModule {}
+export class LoginPageModule {}
