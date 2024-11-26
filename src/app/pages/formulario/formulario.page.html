@@ -20,6 +20,59 @@
       <mat-label>Correo</mat-label>
       <input matInput [(ngModel)]="correo" name="correo" label="correo" title="correo" required type="email">
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" class="submit-button">Guardar Estudiante</button>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" name="password" label="password" title="password" required type="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="submit-button">Registrarse</button>
   </form>
+
+  <!-- Mensaje de éxito o error -->
+  <div *ngIf="responseMessage.success" class="success-message mat-elevation-z3">
+    <mat-icon color="primary">check_circle</mat-icon>
+    <span>{{ responseMessage.success }}</span>
+  </div>
+  <div *ngIf="responseMessage.error" class="error-message mat-elevation-z3">
+    <mat-icon color="warn">error</mat-icon>
+    <span>{{ responseMessage.error }}</span>
+  </div>
 </div>
+
+<style>
+  .content {
+    padding: 16px;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-field {
+    width: 100%;
+  }
+
+  .success-message, .error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 16px;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .success-message {
+    color: #388e3c;
+    background-color: #e8f5e9;
+    border-left: 6px solid #388e3c;
+  }
+
+  .error-message {
+    color: #d32f2f;
+    background-color: #fdecea;
+    border-left: 6px solid #d32f2f;
+  }
+</style>

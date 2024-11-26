@@ -4,8 +4,8 @@
 
 <div class="content">
   <mat-form-field appearance="fill" class="input-field full-width">
-    <mat-label>Username</mat-label>
-    <input matInput placeholder="Username" [(ngModel)]="username">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" [(ngModel)]="email">
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="input-field full-width">
@@ -19,4 +19,13 @@
       <mat-progress-spinner diameter="24" mode="indeterminate"></mat-progress-spinner>
     </ng-template>
   </button>
+  <div class="response-message" *ngIf="responseMessage.success || responseMessage.error">
+    <mat-card *ngIf="responseMessage.success" class="success-message">
+      <mat-card-content>{{ responseMessage.success }}</mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="responseMessage.error" class="error-message">
+      <mat-card-content>{{ responseMessage.error }}</mat-card-content>
+    </mat-card>
+  </div>
 </div>

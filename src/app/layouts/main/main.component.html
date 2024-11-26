@@ -1,21 +1,18 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side">
-    <mat-toolbar color="primary">Menúionic</mat-toolbar>
+    <mat-toolbar color="primary">Menú</mat-toolbar>
     <mat-nav-list>
       <mat-list>
         <mat-list-item class="link">
           <a mat-button routerLink="/home" (click)="sidenav.close()">Home</a>
         </mat-list-item>
-        <mat-list-item class="link">
-          <a mat-button routerLink="/login" (click)="sidenav.close()">Login</a>
-        </mat-list-item>
-        <mat-list-item class="link">
+        <mat-list-item class="link" *ngIf="!isAuthenticated">
           <a mat-button routerLink="/registrarse" (click)="sidenav.close()">Registrarse</a>
         </mat-list-item>
-        <mat-list-item class="link">
+        <mat-list-item class="link" *ngIf="isAuthenticated && isAdmin">
           <a mat-button routerLink="/lista-clientes" (click)="sidenav.close()">Ver clientes registrados</a>
         </mat-list-item>
-        <mat-list-item class="link">
+        <mat-list-item class="link" *ngIf="isAuthenticated">
           <a mat-button routerLink="/carrito" (click)="sidenav.close()">Carrito</a>
         </mat-list-item>
         <mat-list-item class="link">
@@ -23,6 +20,12 @@
         </mat-list-item>
         <mat-list-item class="link">
           <a mat-button routerLink="/buscador" (click)="sidenav.close()">Buscador</a>
+        </mat-list-item>
+        <mat-list-item class="link" *ngIf="!isAuthenticated">
+          <a mat-button routerLink="/login" (click)="sidenav.close()">Login</a>
+        </mat-list-item>
+        <mat-list-item class="link" *ngIf="isAuthenticated">
+          <a mat-button (click)="logout(); sidenav.close()">Logout</a>
         </mat-list-item>
       </mat-list>
     </mat-nav-list>

@@ -5,11 +5,11 @@
 <div class="content">
   <mat-card>
     <mat-card-header class="headContent">
-      <mat-card-title>{{ name }}</mat-card-title>
-      <img class="image" src={{image}} alt="">
+      <mat-card-title>{{ game?.title }}</mat-card-title>
+      <img class="image" src={{game?.thumbnail}} alt="">
     </mat-card-header>
     <mat-card-content>
-      <p>Información detallada sobre el juego.</p>
+      <p>{{ game?.description }}</p>
     </mat-card-content>
   </mat-card>
 </div>

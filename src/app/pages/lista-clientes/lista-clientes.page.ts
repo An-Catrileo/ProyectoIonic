@@ -2,39 +2,51 @@ import { Component, OnInit } from '@angular/core';
 import { ServiciodbService } from 'src/app/services/database.service';
 
 @Component({
-  selector: 'app-verestudiantes',
-  templateUrl: './verestudiantes.page.html',
-  styleUrls: ['./verestudiantes.page.scss'],
+  selector: 'app-lista-clientes',
+  templateUrl: './lista-clientes.page.html',
+  styleUrls: ['./lista-clientes.page.scss'],
 })
-export class listaClientesPage implements OnInit {
+export class ListaClientesPage implements OnInit {
+  clients: any[] = [];
+  loading: boolean = false;
+  responseMessage: { success?: string; error?: string } = {};
 
-  students: any[] = [];
-
-  constructor(private dbService: ServiciodbService) { }
+  constructor(private dbService: ServiciodbService) {}
 
   async ngOnInit() {
-    await this.dbService.initDB;
-    await this.loadStudiantes();
-    
+    this.loading = true;
+    await this.dbService.initDB();
+    await this.loadClients();
+    this.loading = false;
   }
 
-  async loadStudiantes(){
-    this.students = await this.dbService.getAllStudents();
+  async loadClients() {
+    try {
+      const response = await this.dbService.getAllCustomers();
+      if (response.success) {
+        this.clients = response.success;
+      } else if (response.error) {
+        this.responseMessage.error = response.error;
+      }
+    } catch (error) {
+      this.responseMessage.error = 'Error al cargar los clientes.';
+    }
   }
 
-  pinone(id: number){
-    console.log("Estudiante con id:", id);
+  async deleteClient(id: number) {
+    this.loading = true;
+    try {
+      const response = await this.dbService.deleteCustomer(id);
+      if (response.success) {
+        this.responseMessage.success = response.success;
+        await this.loadClients();
+      } else if (response.error) {
+        this.responseMessage.error = response.error;
+      }
+    } catch (error) {
+      this.responseMessage.error = 'Error al eliminar el estudiante.';
+    } finally {
+      this.loading = false;
+    }
   }
-
-  compartirpin(student : any){
-
-    console.log('Conpartir Estudiante:', student);
-  }
-
-
-  async deleteStudent(id: number){
-    await this.dbService.deleteStudent(id);
-    await this.loadStudiantes();
-  }
-  
 }

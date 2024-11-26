@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './guards/admin.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { MainLayoutComponent } from './layouts/main/main.component';
 
 const routes: Routes = [
@@ -30,6 +32,7 @@ const routes: Routes = [
           import('./pages/carrito/carrito.module').then(
             (m) => m.CarritoPageModule
           ),
+        canActivate: [AuthGuard],
       },
       {
         path: 'categorias',
@@ -51,6 +54,14 @@ const routes: Routes = [
           import('./pages/buscador/buscador.module').then(
             (m) => m.BuscadorPageModule
           ),
+      },
+      {
+        path: 'lista-clientes',
+        loadChildren: () =>
+          import('./pages/lista-clientes/lista-clientes.module').then(
+            (m) => m.ListaClientesPageModule
+          ),
+        canActivate: [AdminGuard], // Solo los administradores pueden acceder a la lista de clientes
       },
       {
         path: '',

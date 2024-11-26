@@ -1,25 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GamesService } from '../../services/games.service';
+
+type GameType = {
+  id?: Number;
+  title?: string;
+  description?: string;
+  thumbnail?: string;
+}
 
 @Component({
   selector: 'app-detalle-juego',
   templateUrl: './detalle-juego.page.html',
   styleUrls: ['./detalle-juego.page.scss'],
 })
-export class DetalleJuegoPage {
-  name: string;
-  image: string;
+export class DetalleJuegoPage implements OnInit {
+  game: GameType = {}
 
-  constructor(private route: ActivatedRoute) {
-    const games: { [key: number]: { name: string; image: string } } = {
-      1: {
-        name: 'Zelda Tears Of The Kingdom',
-        image: '../../assets/images/zeldaTOTK.jpg',
-      },
-      2: { name: 'Mario Wonder', image: '../../assets/images/marioWonder.jpg' },
-    };
+  constructor(private route: ActivatedRoute, private gamesService: GamesService) {}
+
+  ngOnInit() {
     const gameId = +(this.route.snapshot.paramMap.get('id') || 0);
-    this.name = games[gameId]?.name || 'Juego no encontrado';
-    this.image = games[gameId]?.image || '';
+    this.gamesService.getGameById(gameId).subscribe(
+      (data: any) => {
+        this.game = data
+      },
+      (error: any) => {
+        console.log('Error al obtener los detalles del juego:', error);
+        this.game = {title: 'Juego no encontrado'};
+      }
+    );
   }
 }

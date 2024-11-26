@@ -1,41 +1,48 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="toggleMenu()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Ver Clientes</span>
-</mat-toolbar>
-
-<div class="content">
+<div class="content" *ngIf="!loading; else loadingTemplate">
   <mat-list>
-    <mat-list-item *ngFor="let student of students">
-      <img mat-list-avatar src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="">
-      <h3 mat-line>{{student.nombre}} {{student.apellidop}}</h3>
-      
-      <!-- Opciones del cliente -->
-      <button mat-icon-button color="warn" (click)="pinone(student.id)">
-        <mat-icon>push_pin</mat-icon>
-      </button>
-      <button mat-icon-button color="primary" (click)="compartirpin(student)">
-        <mat-icon>share</mat-icon>
-      </button>
-      <button mat-icon-button color="warn" (click)="deleteStudent(student.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </mat-list-item>
+    <mat-card *ngFor="let client of clients" class="client-card">
+      <mat-card-content>
+        <h3>{{ client.nombre }} {{ client.apellidop }} {{ client.apellidom }}</h3>
+        <p>RUT: {{ client.rut }}</p>
+        <p>Correo: {{ client.correo }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="deleteClient(client.id)">
+          <mat-icon>delete</mat-icon> Eliminar
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </mat-list>
+
+  <div *ngIf="responseMessage.error" class="error-message">
+    {{ responseMessage.error }}
+  </div>
 </div>
+
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
 
 <style>
   .content {
     padding: 16px;
   }
 
-  mat-list-item {
-    display: flex;
-    align-items: center;
+  .client-card {
+    margin-bottom: 16px;
   }
 
-  mat-list-avatar {
-    margin-right: 16px;
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 16px;
   }
 </style>

@@ -1,16 +1,27 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { listaClientesPage } from './lista-clientes.page';
+import { ListaClientesPage } from './lista-clientes.page';
+import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from 'src/app/material.module';
+
+// Definir las rutas locales para esta página
+const routes: Routes = [
+  {
+    path: '',
+    component: ListaClientesPage,
+  },
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    listaClientesPage
+    RouterModule.forChild(routes),
+    MaterialModule,
   ],
-  declarations: [listaClientesPage]
+  declarations: [ListaClientesPage],
 })
-export class VerestudiantesPageModule {}
+export class ListaClientesPageModule {}
