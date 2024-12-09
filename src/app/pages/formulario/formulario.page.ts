@@ -26,7 +26,7 @@ export class FormularioPage implements OnInit {
   async addStudent(event: Event) {
     event.preventDefault();
     this.loading = true;
-    this.responseMessage = {}; // Limpiar el mensaje antes de intentar registrar
+    this.responseMessage = {};
 
     try {
       const response = await this.dbService.registerUser(

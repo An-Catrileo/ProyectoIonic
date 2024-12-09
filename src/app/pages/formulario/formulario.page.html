@@ -2,27 +2,27 @@
   <form (submit)="addStudent($event)" class="form-container">
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>RUT</mat-label>
-      <input matInput [(ngModel)]="rut" name="rut" label="rut" title="rut" required>
+      <input data-testid="rut-input" matInput [(ngModel)]="rut" name="rut" label="rut" title="rut" required>
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Nombre</mat-label>
-      <input matInput [(ngModel)]="nombre" name="nombre" label="nombre" title="nombre" required>
+      <input data-testid="nombre-input" matInput [(ngModel)]="nombre" name="nombre" label="nombre" title="nombre" required>
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Apellido Paterno</mat-label>
-      <input matInput [(ngModel)]="apellidop" name="apellidop" label="apellidop" title="apellidop" required>
+      <input data-testid="apellidop-input" matInput [(ngModel)]="apellidop" name="apellidop" label="apellidop" title="apellidop" required>
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Apellido Materno</mat-label>
-      <input matInput [(ngModel)]="apellidom" name="apellidom" label="apellidom" title="apellidom" required>
+      <input data-testid="apellidom-input" matInput [(ngModel)]="apellidom" name="apellidom" label="apellidom" title="apellidom" required>
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Correo</mat-label>
-      <input matInput [(ngModel)]="correo" name="correo" label="correo" title="correo" required type="email">
+      <input data-testid="correo-input" matInput [(ngModel)]="correo" name="correo" label="correo" title="correo" required type="email">
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Password</mat-label>
-      <input matInput [(ngModel)]="password" name="password" label="password" title="password" required type="password">
+      <input data-testid="password-input" matInput [(ngModel)]="password" name="password" label="password" title="password" required type="password">
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit" class="submit-button">Registrarse</button>
   </form>
